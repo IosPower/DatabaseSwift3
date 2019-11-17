@@ -471,7 +471,7 @@ extension String {
         var pos = -1
         if let range = range(of:sub) {
             if !range.isEmpty {
-                pos = characters.distance(from:startIndex, to:range.lowerBound)
+                pos = distance(from:startIndex, to:range.lowerBound)
             }
         }
         return pos
@@ -480,10 +480,10 @@ extension String {
     func subString(start:Int, length:Int = -1)->String {
         var len = length
         if len == -1 {
-            len = characters.count - start
+            len = count - start
         }
-        let st = characters.index(startIndex, offsetBy:start)
-        let en = characters.index(st, offsetBy:len)
+        let st = index(startIndex, offsetBy:start)
+        let en = index(st, offsetBy:len)
         let range = st ..< en
         return substring(with:range)
     }
